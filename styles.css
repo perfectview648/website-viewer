@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Perfect View — Digital Menu Showcase
+   Plain CSS, no build step. Edit tokens in :root to restyle the whole site.
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --color-bg: #FBF9F6;
+  --color-ink: #1C1A17;
+  --color-ink-soft: #55524B;
+  --color-accent: #2F4B44;   /* deep ink-teal — brand / buttons */
+  --color-accent-hover: #24382E;
+  --color-brass: #B08D57;    /* single restrained secondary accent */
+  --color-border: #E4E0D8;
+  --color-card-bg: #FFFFFF;
+
+  /* Type */
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Layout */
+  --wrap-max: 1180px;
+  --wrap-pad: 24px;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: var(--wrap-max);
+  margin: 0 auto;
+  padding-left: var(--wrap-pad);
+  padding-right: var(--wrap-pad);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------- Header ---------------------------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--color-ink);
+}
+
+.brand-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.site-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent);
+}
+
+/* ---------------------------------- Intro ---------------------------------- */
+
+.intro {
+  padding-top: 64px;
+  padding-bottom: 40px;
+  max-width: 720px;
+}
+
+.intro h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+/* ---------------------------------- Menu grid ---------------------------------- */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding-bottom: 88px;
+}
+
+@media (min-width: 640px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------------------------------- Card ---------------------------------- */
+
+.menu-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.menu-card:hover,
+.menu-card:focus-visible {
+  border-color: var(--color-brass);
+  transform: translateY(-2px);
+}
+
+.menu-card-media {
+  aspect-ratio: 4 / 3;
+  background: #F1EEE7;
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder state shown when no real screenshot exists yet */
+.menu-card-media.is-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-card-media.is-placeholder .placeholder-label {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  line-height: 1.4;
+}
+
+.menu-card-body {
+  padding: 20px 22px 22px;
+}
+
+.menu-card-eyebrow {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  margin: 0 0 4px;
+}
+
+.menu-card-name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+  color: var(--color-ink);
+}
+
+.menu-card-desc {
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+  margin: 0 0 18px;
+}
+
+.menu-card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.menu-card-cta-label {
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--color-accent);
+}
+
+.menu-card-cta-arrow {
+  color: var(--color-brass);
+  transition: transform 0.15s ease;
+}
+
+.menu-card:hover .menu-card-cta-arrow,
+.menu-card:focus-visible .menu-card-cta-arrow {
+  transform: translateX(3px);
+}
+
+/* ---------------------------------- Footer ---------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.footer-inner p {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+
+.footer-name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-ink) !important;
+  font-size: 1rem !important;
+}
+
+.footer-copy {
+  margin-bottom: 0 !important;
+}
