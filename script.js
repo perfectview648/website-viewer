@@ -14,25 +14,25 @@ const MENUS = [
     name: "Soghaat Sweets & Bakers",
     description: "Digital menu for sweets and bakery items.",
     url: "https://soghaat-menus.perfectview648.workers.dev/",
-    image: "/assets/soghaat.webp"
+    image: "images/soghaat.png"
   },
   {
     name: "Lumbini Hut",
     description: "Digital menu for dine-in and takeout.",
     url: "https://lumbini-digital-menu.perfectview648.workers.dev/",
-    image: "/assets/lumbini.webp"
+    image: "images/lumbini.png"
   },
   {
     name: "Chulla Express",
     description: "Digital menu for quick-service dining.",
     url: "https://chulla-menu.perfectview648.workers.dev/",
-    image: "/assets/chulla.webp"
+    image: "images/chullah.png"
   },
   {
     name: "Samosa Hut",
     description: "Digital menu for a fast-casual snack shop.",
     url: "https://samosa-hut.perfectview648.workers.dev/",
-    image: "/assets/samosa-hut.webp"
+    image: "images/samosa.png"
   }
 
   // Example — add a fifth menu like this:
